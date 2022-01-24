@@ -15,7 +15,7 @@ def Home(request):
     context = {
         'object_list' : inventories.objects.all()
     }
-    return render(request, 'Inventory.html', context)
+    return render(request, 'inv.html', context)
 
 
 def Add(request):
