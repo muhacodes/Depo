@@ -1,0 +1,26 @@
+
+#success-alert{
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+#delete_product{
+    cursor: pointer;
+}
+
+#myTable th{
+    color: white;
+}
+
+#myTable td{
+    background-color: #191c24;
+    color: gray;
+}
+#myTable_wrapper label{
+    /* background-color: white; */
+    color: white;
+}
+#myTable_wrapper input{
+    color: white;
+}

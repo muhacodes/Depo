@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block css %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+{% endblock %}
+
+{% block js %}
+<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+{% if "permissions" in message.tags %}
+<div id="success-alert" class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+  <li> {{ message }} </li>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+<div class="page-header">
+  <h3 class="page-title"> Dashboard </h3>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'inventory:home' %}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"> category </li>
+    </ol>
+  </nav>
+  {% if messages %}
+  {% for message in messages %}
+  <div id="success-alert" class="alert alert-info">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    <li> {{ message }} local </li>
+  </div>
+  {% endfor %}
+  {% endif %}
+</div>
+
+<div class="row">
+  <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-9">
+            <div class="d-flex align-items-center align-self-start">
+              <h3 class="mb-0"> {{ products|intcomma }}  </h3>
+              <p class="text-success ml-2 mb-0 font-weight-medium"></p>
+            </div>
+          </div>
+          <div class="col-3">
+            <!-- <div class="icon icon-box-success ">
+              <span class="mdi mdi-arrow-top-right icon-item"></span>
+            </div> -->
+          </div>
+        </div>
+        <h6 class="text-muted font-weight-normal"> Products </h6>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-9">
+            <div class="d-flex align-items-center align-self-start">
+              <h3 class="mb-0"> {{ expense|intcomma }} </h3>
+              <p class="text-success ml-2 mb-0 font-weight-medium"></p>
+            </div>
+          </div>
+          <div class="col-3">
+            <!-- <div class="icon icon-box-success">
+              <span class="mdi mdi-arrow-top-right icon-item"></span>
+            </div> -->
+          </div>
+        </div>
+        <h6 class="text-muted font-weight-normal"> Products </h6>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-9">
+            <div class="d-flex align-items-center align-self-start">
+              <h3 class="mb-0"> {{ total_sales|intcomma }} </h3>
+              <p class="text-success ml-2 mb-0 font-weight-medium"></p>
+            </div>
+          </div>
+          <div class="col-3">
+            <!-- <div class="icon icon-box-success">
+              <span class="mdi mdi-arrow-top-right icon-item"></span>
+            </div> -->
+          </div>
+        </div>
+        <h6 class="text-muted font-weight-normal"> Revenue </h6>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
+{% endblock %}
