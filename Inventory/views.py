@@ -15,7 +15,7 @@ def Home(request):
     context = {
         'object_list' : inventories.objects.all()
     }
-    return render(request, 'inv.html', context)
+    return render(request, 'inventory.html', context)
 
 
 def Add(request):
@@ -27,7 +27,7 @@ def Add(request):
         return HttpResponseRedirect(reverse('inventory:home'))
 
         
-    return render(request, 'Inventory-add.html', {'form': form})
+    return render(request, 'inventory-add.html', {'form': form})
 
 
 def Edit(request, pk):
@@ -39,7 +39,7 @@ def Edit(request, pk):
         request.session['message'] = True
         return HttpResponseRedirect(reverse('inventory:home'))
     
-    return render(request, 'Inventory-edit.html', {'form': form})
+    return render(request, 'inventory-edit.html', {'form': form})
 
 
 def Delete(request):

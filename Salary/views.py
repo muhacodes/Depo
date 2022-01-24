@@ -35,9 +35,12 @@ def Add(request):
         salaryobj = Salary.objects.filter(employee=emp_id,created_at__month=today.month).aggregate(Sum('amount'))
         employeeSalary = Employee.objects.get(id=emp_id.id)
         employeeSalaryTaken = salaryobj['amount__sum']
-        employeeSalaryBalance = employeeSalary.amount - employeeSalaryTaken
+        if employeeSalaryTaken != None:
+            employeeSalaryBalance = employeeSalary.amount - employeeSalaryTaken
+        else:
+            employeeSalaryBalance = employeeSalary.amount
         
-        if form.instance.amount < employeeSalaryBalance:
+        if form.instance.amount <= employeeSalaryBalance:
             form.save()
             messages.error(request, 'Your actions have been succesfully saved !')
             return HttpResponseRedirect(reverse('salary:home'))

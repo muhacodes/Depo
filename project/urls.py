@@ -28,7 +28,7 @@ urlpatterns = [
 
     path('admin/user/', include('account.urls')),
 
-    path('admin/dashboard', views.home, name='home'),
+    path('admin/dashboard', login_required(views.home), name='home'),
 
     # # path('admin/inventory/', include('Inventory.urls', 'inventory')),
 

@@ -30,4 +30,6 @@ urlpatterns = [
 
     path('expense/delete', login_required(views.Delete), name='delete'),
 
+    path('expense/type/add', login_required(views.expense_type_add), name='type-add'),
+
 ]

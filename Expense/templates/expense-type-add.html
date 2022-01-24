@@ -5,21 +5,13 @@
 
 {% block content %}
 <div class="page-header">
-    <h3 class="page-title"> sales </h3>
+    <h3 class="page-title"> Category </h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'sales:home' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'inventory:home' %}">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page"> category </li>
       </ol>
     </nav>
-    {% if messages %}
-    {% for message in messages %}
-    <div id="success-alert" class="alert alert-info">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-      <li> {{ message }} </li>
-    </div>
-    {% endfor %}
-    {% endif %}
 </div>
 
 <div class="row">

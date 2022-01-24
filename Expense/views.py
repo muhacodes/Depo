@@ -1,11 +1,12 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, CreateView
 from .models import Expense
-from .forms import create_form
+from .forms import create_form, expense_type
 from django.urls import reverse
 from django.db.models import Sum
 from django.contrib import messages
 from account.decorators import allowed_users
+
 # Create your views here.
 
 
@@ -53,3 +54,15 @@ def Delete(request):
     messages.error(request, 'Your actions have been succesfully saved !')
     return HttpResponseRedirect(reverse('expense:home'))
 
+
+
+def expense_type_add(request):
+    form = expense_type(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        messages.error(request, 'Your actions have been succesfully saved !')
+        return HttpResponseRedirect(reverse('expense:home'))
+
+        
+    return render(request, 'expense-type-add.html', {'form': form})
