@@ -43,11 +43,19 @@ urlpatterns = [
     path('admin/', include('Employee.urls')),
     
     path('admin/', include('Expense.urls')),
+
     path('admin/', include('Inventory.urls')),
+
+    path('admin/', include('Inventory.Truckexp')),
+
     path('admin/', include('Product.urls')),
+
     path('admin/', include('Salary.urls')),
+
     path('admin/', include('Sales.urls')),
+
     path('admin/', include('Rate.urls')),
+
 
     
 ]
