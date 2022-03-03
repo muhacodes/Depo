@@ -166,6 +166,23 @@
               <span class="menu-title">Rate</span>
             </a>
           </li>
+          {% if request.user.is_admin %}
+          <li class="nav-item menu-items">
+            <a class="nav-link collapse" data-bs-toggle="collapse" href="#page-layouts" aria-expanded="True" aria-controls="page-layouts">
+              <span class="menu-icon">
+                <i class="mdi mdi-settings text-primary"></i>
+              </span>
+              <span class="menu-title"> Account Settings </span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse show" id="page-layouts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'settings-create-user' %}"> New User </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'settings-change-password' %}"> Chane Password </a></li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
         </ul>
       </nav>
       <!-- partial -->

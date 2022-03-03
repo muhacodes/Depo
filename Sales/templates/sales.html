@@ -51,9 +51,9 @@
 
                 <th style="color: white"> Product Name </th>
                 <!-- <th> Products </th> -->
-                <th style="color: white"> price </th>
-
                 <th style="color: white"> Quantity </th>
+
+                <th style="color: white"> price </th>
 
                 <th style="color: white"> Total Amount </th>
 
@@ -68,8 +68,8 @@
               <tr>
                 <td> {{ obj.created_at }} </td>
                 <td> {{ obj.product.name}} </td>
-                <td> {{ obj.selling_price }} </td>
                 <td> {{ obj.quantity }} </td>
+                <td> {{ obj.selling_price|intcomma }} </td>
                 <td> {{ obj.quantity|multiply:obj.selling_price|intcomma }} </td>
                 <td> {{ obj.product.quantity }} </td>
                 <td> 

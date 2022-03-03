@@ -56,6 +56,10 @@ urlpatterns = [
 
     path('admin/', include('Rate.urls')),
 
+    path('admin/settings-change-password', views.settings, name='settings-change-password'),
+
+    path('admin/settings-create-user', views.UserCreation, name='settings-create-user'),
+
 
     
 ]

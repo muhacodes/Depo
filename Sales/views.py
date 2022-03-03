@@ -32,13 +32,13 @@ def Add(request):
 
     if form.is_valid():
         obj  = form.save(commit=False)
-        selling_price =    obj.product.selling_price
+        # selling_price =    obj.product.selling_price
 
-        if selling_price == None:
-            messages.error(request, 'Selling Price is missing !')
-            return HttpResponseRedirect(reverse('product:home'))
+        # if selling_price == None:
+        #     messages.error(request, 'Selling Price is missing !')
+        #     return HttpResponseRedirect(reverse('sales:home'))
         
-        obj.selling_price =  selling_price
+        # obj.selling_price =  selling_price
         obj.save()
         messages.error(request, 'Your actions have been succesfully saved !')
         return HttpResponseRedirect(reverse('sales:home'))

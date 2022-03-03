@@ -6,7 +6,7 @@ from .models import Sale
 class create_form(ModelForm):
     class Meta:
         model = Sale
-        fields = ('product', 'quantity',)
+        fields = ('product', 'quantity', 'selling_price')
 
     def __init__(self, *args, **kwargs):
         super(create_form, self).__init__(*args, **kwargs)
