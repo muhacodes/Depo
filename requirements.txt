@@ -3,7 +3,6 @@ cart==1.2.1
 Django==4.0
 django-multiselectfield==0.1.12
 django-phonenumber-field==6.0.0
-mod-wsgi==4.9.0
 phonenumbers==8.12.40
 pycryptodome==3.12.0
 sqlparse==0.4.2
