@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 class Sale(models.Model):
     product             = models.ForeignKey(products, on_delete=models.CASCADE)
     quantity            = models.SmallIntegerField()
-    selling_price		= models.DecimalField(max_digits=7, decimal_places=0, blank=True ,verbose_name="Selling Price")
+    selling_price		= models.DecimalField(max_digits=10, decimal_places=2, blank=True ,verbose_name="Selling Price")
     created_at  		= models.DateField(auto_now_add=True)
 
     def __str__(self):
