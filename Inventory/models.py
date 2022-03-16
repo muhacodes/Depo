@@ -7,7 +7,7 @@ class inventories(models.Model):
     name                = models.CharField(max_length=50)
     description         = models.TextField(max_length=1000, null=True, blank=True)
     quantity            = models.SmallIntegerField()
-    cost_price			= models.DecimalField(max_digits=7, decimal_places=0, null=True, verbose_name="Cost Price")
+    cost_price			= models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name="Cost Price")
     # selling_price		= models.DecimalField(max_digits=7, decimal_places=2, null=True, verbose_name="Selling Price")
     numberPlate         = models.CharField(max_length=7, null=True, blank=True)
     created_at  		= models.DateField(auto_now_add=True)
