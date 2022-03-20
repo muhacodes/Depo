@@ -27,6 +27,14 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-left mb-3">Login</h3>
+                {% if messages %}
+                  {% for message in messages %}
+                  <div id="success-alert" class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <li> {{ message }} </li>
+                  </div>
+                  {% endfor %}
+                {% endif %}
                 <form method="post" action="">
                   {% csrf_token %}
                   <div class="form-group">

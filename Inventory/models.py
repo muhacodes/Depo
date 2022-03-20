@@ -1,3 +1,4 @@
+from venv import create
 from django.db import models
 from django.db.models.signals import post_save
 from Product.models import products
@@ -30,7 +31,7 @@ class TruckExpense(models.Model):
 
 
 
-def add_product(sender, instance, *args, **kwargs):
+def add_product(sender, instance, created, *args, **kwargs):
     obj = products(
         name=instance.name, 
         description=instance.description,
@@ -39,7 +40,9 @@ def add_product(sender, instance, *args, **kwargs):
         created_at = instance.created_at
 
     )
-    obj.save()
-    print('saved')
+    if created:
+        obj.save()
+
+    
 
 post_save.connect(add_product, sender=inventories)

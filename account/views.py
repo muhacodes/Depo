@@ -27,7 +27,7 @@ def login_user(request):
 		login(request, user, backend='account.backend.Backend')
 		return redirect(to='home')
 
-	messages.info(request, 'Username OR password is incorrect')
+	messages.info(request, 'Username Or password is incorrect')
 	return render(request, 'login.html')
 
 	

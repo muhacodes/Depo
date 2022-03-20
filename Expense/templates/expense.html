@@ -65,7 +65,7 @@
                 <td> {{ obj.created_at }} </td>
                 <td>
                    {% if obj.type %} 
-                   {{ obj.type.name }}
+                   {{ obj.type.name }} - {{ obj.name }}
                    {% else %}
                    {{ obj.name }}
                    {% endif %}
