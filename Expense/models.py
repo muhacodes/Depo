@@ -20,5 +20,8 @@ class Expense(models.Model):
     created_at  		= models.DateField(auto_now_add=True)
     updated_at  		= models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['created_at']
+
     def __str__(self):
         return self.name if self.name else self.type.name 

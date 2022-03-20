@@ -11,7 +11,9 @@
 
 <script>
   $(document).ready( function () {
-    $('#myTable').DataTable();
+    $('#myTable').DataTable({
+      "order": []
+    });
 } );
 </script>
 {% endblock %}
