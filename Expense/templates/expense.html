@@ -71,7 +71,7 @@
                    {% endif %}
                   </td>
                 <td> {{ obj.description }} </td>
-                <td> {{ obj.amount }} </td>
+                <td> {{ obj.amount|intcomma }} </td>
                 <td> 
                   <a style="margin: 0px 20px;" href="{% url 'expense:edit' obj.id %}">
                     <span>
