@@ -28,7 +28,7 @@ def Add(request):
     if form.is_valid():
         form.save()
         messages.error(request, 'Your actions have been succesfully saved !')
-        return HttpResponseRedirect(reverse('inventory:home'))
+        return HttpResponseRedirect(reverse('product:home'))
 
         
     return render(request, 'product-add.html', {'form': form})
@@ -53,5 +53,5 @@ def Delete(request):
     object = products.objects.get(id=pk)
     object.delete()
     messages.error(request, 'Your actions have been succesfully saved !')
-    return HttpResponseRedirect(reverse('inventory:home'))
+    return HttpResponseRedirect(reverse('product:home'))
 
