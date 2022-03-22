@@ -8,7 +8,7 @@ class products(models.Model):
     cost_price			= models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name="Cost Price")
     selling_price		= models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name="Selling Price")
     available           = models.BooleanField(default=True)
-    created_at  		= models.DateField(auto_now_add=True)
+    created_at  		= models.DateField(verbose_name="Date")
     updated_at  		= models.DateTimeField(auto_now=True)
 
     def __str__(self):

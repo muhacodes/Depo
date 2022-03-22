@@ -7,7 +7,9 @@ class Sale(models.Model):
     product             = models.ForeignKey(products, on_delete=models.CASCADE)
     quantity            = models.SmallIntegerField()
     selling_price		= models.DecimalField(max_digits=10, decimal_places=2, blank=True ,verbose_name="Selling Price")
-    created_at  		= models.DateField(auto_now_add=True)
+    balance             = models.SmallIntegerField()
+    created_at  		= models.DateField(verbose_name="Date")
+    updated_at  		= models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['created_at']
@@ -17,11 +19,14 @@ class Sale(models.Model):
 
 
 
-def update_quantity(sender, instance, *args, **kwargs):
+def update_quantity(sender, instance, created, *args, **kwargs):
     id = instance.product.id
     product = products.objects.get(id=id)
     product.quantity = product.quantity - instance.quantity
-    product.save()
+
+    if created:
+        product.save()
+    
 
 
 post_save.connect(update_quantity, sender=Sale)

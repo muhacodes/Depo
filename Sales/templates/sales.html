@@ -73,7 +73,7 @@
                 <td> {{ obj.quantity }} </td>
                 <td> {{ obj.selling_price|intcomma }} </td>
                 <td> {{ obj.quantity|multiply:obj.selling_price|intcomma }} </td>
-                <td> {{ obj.product.quantity }} </td>
+                <td> {{ obj.balance }} </td>
                 <td> 
                   <a style="margin: 0px 20px;" href="{% url 'sales:edit' obj.id %}">
                     <span>

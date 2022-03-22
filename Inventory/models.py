@@ -11,7 +11,7 @@ class inventories(models.Model):
     cost_price			= models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name="Cost Price")
     # selling_price		= models.DecimalField(max_digits=7, decimal_places=2, null=True, verbose_name="Selling Price")
     numberPlate         = models.CharField(max_length=7, null=True, blank=True)
-    created_at  		= models.DateField(auto_now_add=True)
+    created_at  		= models.DateField(verbose_name="Date")
     updated_at  		= models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class TruckExpense(models.Model):
     expense         = models.CharField(max_length=100)
     description     = models.CharField(max_length=2000, null=True, blank=True)
     amount			= models.DecimalField(max_digits=10, decimal_places=2, null=True)
-    created_at  	= models.DateField(auto_now_add=True)
+    created_at  	= models.DateField(verbose_name="Date")
     updated_at  	= models.DateTimeField(auto_now=True)
 
     def __str__(self):
